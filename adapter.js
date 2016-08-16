@@ -31,7 +31,9 @@
       if (done) {
         complete(reason);
       } else {
+        var newError = new Error('out of band throw');
         setTimeout(function() {
+          console.log('ember-mocha-new-stack', newError, newError.stack);
           throw reason;
         });
       }
